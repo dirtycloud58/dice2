@@ -11,11 +11,49 @@ const save = document.getElementById("save");
 
 const dice = document.getElementById("dice");
 
+activePlayer = player1;
+
 function jeter() {
 
-    let number = Math.floor(Math.random() * (6 - 1 +1) +1)
+    let number = Math.floor(Math.random() * (6 - 1 +1) +1);
     dice.textContent = number;
     console.log(dice);
+
+    if(number == 1){
+        if(activePlayer == player1){
+            score1.textContent = 0;
+            nextPlayer();
+        }else{
+            score2.textContent = 0;
+            nextPlayer();
+        }
+    }else {
+        if(activePlayer == player1){
+            score1.textContent = parseInt(score1.textContent) + number;
+    } else{
+            score2.textContent = parseInt(score2.textContent) + number;
+    }
+}};
+
+
+function nextPlayer() {
+
+activePlayer = activePlayer == player1 ? player2 : player1;
+
+score1.textContent = 0;
+score2.textContent = 0;
+
 };
 
-jeter();
+function credit () {
+    if(activePlayer == player1){
+        scoreTotal1.textContent = parseInt(score1.textContent);
+        nextPlayer();
+    }else {
+        scoreTotal2.textContent = parseInt(score2.textContent);
+        nextPlayer();
+    }
+}
+
+lancer.addEventListener("click", jeter);
+save.addEventListener("click", credit);
