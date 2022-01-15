@@ -1,23 +1,68 @@
 body{
     width: 100vw;
+    height: 100vh;;
     display: flex;
     margin: 0;
     padding: 0;
+    justify-content: space-around;
+    background-image: url(./IMG/savane.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-#player1, #player2{
-    width: 50vw;
-    height: 100vh;
+h2, p{
+    padding-bottom: 5vh;
+}
+span{
+    font-size: 2em;
+}
+.player1, .player2{
+    width: 45vw;
+    height: 90vh;
+    margin-top: 5vh;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
+    border: 1px solid transparent;
+    border-radius: 25px;
 }
-#fonction{
+.fonction{
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: space-around;
 }
+
+.score, .table{
+    margin: 5vw;
+    padding-bottom: 5vh;
+    border: 1px solid transparent;
+    border-radius: 25px;
+}
 .activePlayer{
     background: rgba($color: #807171, $alpha: 0.6);
+}
+.active{
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+        & .score, .table{
+            background-color: white;
+        }
+}
+#dice img{
+    width: 5vw;
+}
+button{
+    min-width: 5vw;
+    height: 5vh;
+    font-weight: 700;
+    background: black;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 25px;
+}
+button:focus{
+    cursor: pointer;
+}
+#scoreTotal1, #scoreTotal2 {
+    color: red;
 }
